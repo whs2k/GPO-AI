@@ -1,0 +1,147 @@
+/* RESET LAYOUT AND ADD COLORS */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #888;
+    color: #444;
+}
+
+header, footer {
+    font-size: large;
+    text-align: center;
+    padding: 1.25rem 0;
+    background-color: #444;
+    color: #eee;
+}
+
+nav {
+    background: #eee;
+}
+
+main {
+    background: #eee;
+}
+
+aside {
+    background: #eee;
+}
+
+
+/* Layout */
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: rgb(98, 0, 238);
+}
+
+main {
+    flex-grow: 1;
+    margin: 0 auto;
+    padding: 5em 4em;
+    padding-bottom: 2em;
+    width: 35em;
+}
+
+
+footer {
+
+}
+
+
+
+/* more */
+footer span {
+    opacity: .5;
+}
+form {
+    margin: 1em 0 2em;
+}
+
+dl {
+    display: block;
+}
+dt {
+    font-weight: bold; }
+dd {
+    margin-bottom: 1em;
+}
+
+div.outline {
+    border: 1px solid #bbb;
+    padding: 1em;
+    margin-bottom: 2em;
+    border-radius: 2px; /* .3em; match mdc */
+}
+
+#scrollex {
+    display: flex;
+    justify-content: space-between;
+}
+div.sechild {
+    flex-basis: 45%;
+    padding: .5em;
+    height: 10em;
+    overflow-y: auto;
+}
+
+
+/*  Go full width */
+@media only screen and (max-width: 35em) {
+    main {
+        margin: 0;
+        width: 100%;
+    }
+}
+
+
+
+/*
+match background
+*/
+.mdc-text-field--textarea .mdc-text-field__label {
+    background-color: inherit;
+}
+.mdc-list-item {
+    height: auto;
+    font-size: .6em;
+}
+
+
+.material-icons {
+    line-height: inherit;
+}
+
+
+i.large_icon {
+    display: inline-block;
+    font-size: 2em;
+    vertical-align: middle;
+}
+
+.loader {
+    animation: spin 2s ease-in-out infinite;
+    border: .2em solid #aaa;
+    border-radius: 50%;
+    border-top: .2em solid rgb(98, 0, 238);
+    display: inline-block;
+    margin-right: .2em;
+    height: 1em;
+    line-height: 1;
+    vertical-align: middle;
+    width: 1em;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

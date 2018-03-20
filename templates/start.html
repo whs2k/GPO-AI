@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+    <main>
+        <form id="greeting-form" action="" method="post">
+            <div data-mdc-auto-init="MDCTextField" class="
+                    mdc-text-field
+                    mdc-text-field--textarea
+                    mdc-text-field--fullwidth
+                    mdc-text-field--upgraded
+                ">
+                <textarea id="input_text" name="input_text"
+                          class="mdc-text-field__input"
+                          rows="8" required></textarea>
+                <label for="input_text" class="mdc-text-field__label">
+                    What interests you?
+                </label>
+            </div>
+
+            <button type="submit"
+                    class="mdc-button
+                           mdc-button--raised
+                           mdc-ripple-upgraded"
+                    data-mdc-auto-init="MDCRipple"
+                    style="--mdc-ripple-fg-size:69.3px;
+                           --mdc-ripple-fg-scale:1.8900486336013747;
+                           --mdc-ripple-fg-translate-start:21.6px, -6.116674804687499px;
+                           --mdc-ripple-fg-translate-end:23.1px, -16.65px;"
+            >
+                Submit
+                <i class="material-icons mdc-button__icon">keyboard_arrow_right</i>
+            </button>
+
+        </form>
+
+        <h3>Examples</h3>
+        <div id="scrollex" class="outline">
+            <div class="outline sechild">Elon Musk</div>
+            <div class="outline sechild">
+
+                <ol class="mdc-list">
+                    <li class="mdc-list-item">
+                        14806909, Syngenergy Apparatus
+                    </li>
+                    <li class="mdc-list-item">
+                        14120678, Ties consevatory
+                    </li>
+                    <li class="mdc-list-item">
+                        15105093, METHOD AND SYSTEM FOR ESTIMATING THE COST OF
+                                  CONSTRUCTING A HYDROCARBON FLUID PRODUCTION
+                                  AND/OR PROCESSING FACILITY
+                    </li>
+                    <li class="mdc-list-item">
+                        13694433, Liquid gas power generation
+                    </li>
+                    <li class="mdc-list-item">
+                        12929050, Synergy City: a production facility for
+                                  electrical power, fresh water, and trash
+                                  processing without the use of nuclear
+                                  fission, coal or oil
+                    </li>
+                    <li class="mdc-list-item">
+                        13066643, Blowout preventer-backup safety system
+                    </li>
+                </ol>
+
+            </div>
+        </div>
+    </main>
+{% endblock %}
