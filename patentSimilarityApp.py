@@ -51,7 +51,7 @@ def get_similar_docs(text):
     query = preprocess(text)
     sims = instanceX[query]
     titles = sponsers = texts = []
-    for i in range(1):
+    for i in range(3):
         #print('sim = %.4f' % sims[i][1])
         titles.append(df.title.values[sims[i][0]])
         sponsers.append(df.sponsers.values[sims[i][0]])
