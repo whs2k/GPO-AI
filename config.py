@@ -23,3 +23,5 @@ spark_fraction = 0.1
 spark_seed = 1234
 spark_log_level = 'ERROR'
 
+num_threads = 2
+

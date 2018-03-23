@@ -9,9 +9,11 @@ from flask import render_template as render
 
 import patentSimilarityApp
 #~ import patentSimilarityApp_sim as patentSimilarityApp
+import config
+
 
 # poor man's job queue
-executor = ThreadPoolExecutor(2)
+executor = ThreadPoolExecutor(config.num_threads)
 atexit.register(lambda: print('\nbye'))
 atexit.register(lambda: executor.shutdown())
 jobs = []
