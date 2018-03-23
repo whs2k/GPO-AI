@@ -3,13 +3,17 @@
     Simulate real script.
 
 '''
+from time import sleep
 
 
 def init():
+    sleep(1)
     print('init complete.')
 
 
 def get_similar_docs(text, title='Document Title 1'):
+    print('running get_similar_docs()')
+    sleep(10)
 
     results = [
         ('Document Number 1', title,              'http://bit.ly/DEADBEEF'),
@@ -18,7 +22,6 @@ def get_similar_docs(text, title='Document Title 1'):
         ('Document Number 4', 'Document Title 4', 'http://bit.ly/DEADBEEF'),
         ('Document Number 5', 'Document Title 5', 'http://bit.ly/DEADBEEF'),
     ]
-
     return results
 
 

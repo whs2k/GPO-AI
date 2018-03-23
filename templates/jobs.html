@@ -3,13 +3,16 @@
 
 {% block body %}
     <main>
-        <h1 class="mdc-heading">Results</h1>
+        <h1 class="mdc-heading">Queries in Process</h1>
 
         <div class="outline">
             <dl>
               {% for result in results %}
                 <dt>
-                    <a href="{{ result[2] }}">{{ result[1] }}</a>
+                    <div class="loader{% if result.running() %} spin{% endif %}"></div>
+                    <a href="/results/{{ loop.index - 1 }}">
+                            {{ result }} ‣ {{ result._state }}
+                    </a>
                 </dt>
                 <dd>{{ result[0] }}</dd>
               {% endfor %}

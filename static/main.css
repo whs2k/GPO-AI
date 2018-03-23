@@ -129,7 +129,6 @@ i.large_icon {
 }
 
 .loader {
-    animation: spin 2s ease-in-out infinite;
     border: .2em solid #aaa;
     border-radius: 50%;
     border-top: .2em solid rgb(98, 0, 238);
@@ -139,6 +138,9 @@ i.large_icon {
     line-height: 1;
     vertical-align: middle;
     width: 1em;
+}
+.spin {
+    animation: spin 2s ease-in-out infinite;
 }
 
 @keyframes spin {
