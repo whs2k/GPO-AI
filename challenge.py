@@ -7,8 +7,8 @@ from flask import Flask
 from flask import redirect, request, url_for
 from flask import render_template as render
 
-#~ import patentSimilarityApp
-import patentSimilarityApp_sim as patentSimilarityApp
+import patentSimilarityApp
+#~ import patentSimilarityApp_sim as patentSimilarityApp
 
 # poor man's job queue
 executor = ThreadPoolExecutor(2)
