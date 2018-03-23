@@ -3,10 +3,9 @@ from flask import Flask
 from flask import redirect, request, url_for
 from flask import render_template as render
 
+#~ import patentSimilarityApp
+import patentSimilarityApp_sim as patentSimilarityApp
 
-import patentSimilarityApp
-#import patentSimilarityApp_sim as patentSimilarityApp
-#import similarityApp as similarityApp
 
 app = Flask(__name__)
 patentSimilarityApp.init()
@@ -31,9 +30,7 @@ def results_page():
 
     if request.method == 'POST':
         input_text = request.form.get('input_text')
-        #results = patentSimilarityApp.get_similar_patents(input_text,
-        #                                                  title=input_text)
 
-        results = patentSimilarityApp.get_similar_docs(input_text)#, title=input_text)
+        results = patentSimilarityApp.get_similar_docs(input_text)
 
     return render('results.html', results=results)
