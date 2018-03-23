@@ -1,11 +1,8 @@
-# loc_challenge_ai
-A Machine Learning Law Match Maker
+## LOC Challenge AI
 
+A Machine Learning Law Match Maker.
 
-#@ LOC Challenge
-
-
-Create an application, website, visualization,
+An application, website, visualization,
 or other digital creation that helps analyze Congressional data.
 
 
