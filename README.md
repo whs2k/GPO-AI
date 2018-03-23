@@ -20,3 +20,6 @@ or other digital creation that helps analyze Congressional data.
     ⏵ env FLASK_APP=challenge.py flask run
 
 
+Or shortcut:
+
+    ⏵ make run
