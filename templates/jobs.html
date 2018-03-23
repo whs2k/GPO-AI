@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block morehead %}
+    <meta http-equiv="refresh" content="20">
+{% endblock %}
+
 
 {% block body %}
     <main>
@@ -10,9 +14,11 @@
               {% for result in results %}
                 <dt>
                     <div class="loader{% if result.running() %} spin{% endif %}"></div>
-                    <a href="/results/{{ loop.index - 1 }}">
-                            {{ result }} ‣ {{ result._state }}
-                    </a>
+                    {% if result.done() %}
+                        <a href="/results/{{ loop.index - 1 }}" target="_blank">
+                    {% endif %}
+                            {{ result._name }}… ‣ {{ result._state }}
+                    {% if result.done() %}</a>{% endif %}
                 </dt>
                 <dd>{{ result[0] }}</dd>
               {% endfor %}

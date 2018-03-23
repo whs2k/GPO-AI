@@ -1,5 +1,4 @@
 from __future__ import print_function
-#~ import os
 import atexit
 from concurrent.futures import ThreadPoolExecutor # ProcessPoolExecutor
 
@@ -12,7 +11,7 @@ import patentSimilarityApp
 import config
 
 
-# poor man's job queue
+# Poor man's job queue
 executor = ThreadPoolExecutor(config.num_threads)
 atexit.register(lambda: print('\nbye'))
 atexit.register(lambda: executor.shutdown())
@@ -27,9 +26,9 @@ def start_page():
 
     if request.method == 'POST':
         input_text = request.form.get('input_text')
-        jobs.append(
-            executor.submit(patentSimilarityApp.get_similar_docs, input_text)
-        )
+        job = executor.submit(patentSimilarityApp.get_similar_docs, input_text)
+        job._name = input_text[:8]  # save for later
+        jobs.append(job)
         return redirect(url_for('jobs_page'), code=303)  # as GET
     else:
         return render('start.html')
@@ -44,8 +43,12 @@ def jobs_page():
 @app.route('/results/<int:index>')
 def result_page(index):
     try:
-        results = jobs[index].result()
+        job = jobs[index]
+        jobname = job._name
+        results = job.result()
     except IndexError:
+        jobname = ''
         results = ('Nothing found.', '', '')
 
-    return render('results.html', results=results)
+    return render('results.html',
+                  results=results, index=index, jobname=jobname)
