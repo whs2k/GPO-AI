@@ -21,16 +21,17 @@ def init():
     download('punkt')
 
     print('Importing Similarity Instance...this will be 65 seconds')
-    relPath = 'model/1.1-whs-Sim_Instance'
+    relPath = 'model/1.2-whs-Sim_Instance'
     absPath = os.path.join(os.getcwd(), relPath)
     instanceX = WmdSimilarity.load(absPath)
 
     print('Importing Data...')
-    relPath = 'data/1.0-billTitleSponsors.csv'
+    relPath = 'data/1.3-billTitleSponsors.csv'
     absPath = os.path.join(os.getcwd(), relPath)
     print(absPath)
 
     df = pd.read_csv(absPath)
+    df = df.dropna()
     print('we ready')
 
 
@@ -48,17 +49,25 @@ def preprocess(doc):
 def get_similar_docs(text):
     query = preprocess(text)
     sims = instanceX[query]
-    titles = sponsors = texts = []
+    titles = []
+    sponsors = []
+    urls = []
+    texts = []
     for i in range(3):
         #print('sim = %.4f' % sims[i][1])
-        titles.append(df.title.values[sims[i][0]])
-        sponsors.append(df.sponsors.values[sims[i][0]])
-        texts.append(df.texts.values[sims[i][0]])
+        title = df.title.values[sims[i][0]]
+        url = str(df.url.values[sims[i][0]])
+        text = df.texts.values[sims[i][0]]
 
+        titles.append(title)
+        sponsors.append(df.sponsers.values[sims[i][0]])
+        texts.append(text)
+        urls.append(url)
+        #print(titles)#, sponsors)
     return [
-        (titles[0], sponsors[0]), #, texts[0]),
-        (titles[1], sponsors[1]), #, texts[0]),
-        (titles[2], sponsors[2]), #, texts[0]),
+        (sponsors[0], titles[0], urls[0], texts[0]),#, urls[0]), #, texts[0]),
+        (sponsors[1], titles[1], urls[1], texts[1]),#, urls[1]), #, texts[0]),
+        (sponsors[2], titles[2], urls[2], texts[2])#, urls[2]), #, texts[0]),
     ]
 
 
