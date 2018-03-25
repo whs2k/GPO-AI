@@ -101,6 +101,7 @@ ENV/
 .mypy_cache/
 
 # project
+.DS_Store
 static/node_modules/
 # patentSimilarityApp.py
 data/
