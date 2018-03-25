@@ -8,6 +8,8 @@ from nltk.corpus import stopwords
 from nltk import download
 from nltk import word_tokenize
 
+import config
+
 instanceX = df = None
 
 
@@ -21,13 +23,13 @@ def init():
     download('punkt')
 
     print('Importing Similarity Instance...this will be 65 seconds')
-    relPath = 'model/1.2-whs-Sim_Instance'
-    absPath = os.path.join(os.getcwd(), relPath)
+    #~ relPath = 'model/1.2-whs-Sim_Instance'
+    absPath = os.path.join(os.getcwd(), config.data_relPath1)
     instanceX = WmdSimilarity.load(absPath)
 
     print('Importing Data...')
-    relPath = 'data/1.3-billTitleSponsors.csv'
-    absPath = os.path.join(os.getcwd(), relPath)
+    #~ relPath = 'data/1.3-billTitleSponsors.csv'
+    absPath = os.path.join(os.getcwd(), config.data_relPath2)
     print(absPath)
 
     df = pd.read_csv(absPath)

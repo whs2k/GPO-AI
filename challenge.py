@@ -27,7 +27,8 @@ def start_page():
     if request.method == 'POST':
         input_text = request.form.get('input_text')
         job = executor.submit(patentSimilarityApp.get_similar_docs, input_text)
-        job._name = input_text[:8]  # save for later
+        # save name for later summary view:
+        job._name = input_text[:config.view_query_summarize_length]
         jobs.append(job)
         return redirect(url_for('jobs_page'), code=303)  # as GET
     else:
@@ -37,7 +38,7 @@ def start_page():
 @app.route('/jobs')
 def jobs_page():
 
-    return render('jobs.html', results=jobs)
+    return render('jobs.html', results=jobs, config=config)
 
 
 @app.route('/results/<int:index>')
