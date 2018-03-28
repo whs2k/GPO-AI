@@ -16,7 +16,7 @@
                     <a href="{{ result[2] }}">{{ result[1] }}</a>
                 </dt>
                 <dd>
-                  {% for sponsor in result[0][:10] %}
+                  {% for sponsor in result[0][:sponlimit] %}
                     {% if loop.index == 1 %}
                        <b>{{ sponsor }}</b>,
                     {% else %}

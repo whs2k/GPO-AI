@@ -13,7 +13,7 @@ def init():
 
 def get_similar_docs(text, title='Document Title 1'):
     print('running get_similar_docs()')
-    sleep(6)
+    sleep(3)
 
     results = [     # Sponsors, Title, URL, summary
         (['S1', 'S2', 'S3'], title,         'http://bit.ly/DB', 'Summary'),

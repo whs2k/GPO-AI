@@ -29,3 +29,4 @@ data_relPath2 = 'data/1.3-billTitleSponsors.csv'
 num_threads = 2
 view_query_summarize_length = 30
 view_jobs_refresh_interval = 20
+view_results_sponsor_limit = 10

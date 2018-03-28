@@ -52,4 +52,5 @@ def result_page(index):
         results = ('Nothing found.', '', '')
 
     return render('results.html',
-                  results=results, index=index, jobname=jobname)
+                  results=results, index=index, jobname=jobname,
+                  sponlimit=config.view_results_sponsor_limit)
