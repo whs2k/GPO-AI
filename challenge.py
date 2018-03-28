@@ -1,5 +1,7 @@
 from __future__ import print_function
 import atexit
+import csv
+from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor # ProcessPoolExecutor
 
 from flask import Flask
@@ -13,12 +15,23 @@ import config
 
 # Poor man's job queue
 executor = ThreadPoolExecutor(config.num_threads)
-atexit.register(lambda: print('\nbye'))
-atexit.register(lambda: executor.shutdown())
 jobs = []
 
 app = Flask(__name__)
 patentSimilarityApp.init()
+log_file = open(config.query_log_filename, 'a')
+query_log = csv.writer(log_file)
+
+
+#~ import signal; signal.signal(signal.SIGINT, _cleanup)
+@atexit.register
+def _cleanup():
+    ''' Shutdown gracefully.
+        Doesn't work with Ctrl-C SIGINT vs. threading, unsolved.
+    '''
+    print('\nbye')
+    executor.shutdown()
+    log_file.close()
 
 
 @app.route('/', methods=('GET', 'POST'))
@@ -26,6 +39,12 @@ def start_page():
 
     if request.method == 'POST':
         input_text = request.form.get('input_text')
+
+        # record query
+        query_log.writerow((datetime.now().isoformat(),
+                            input_text.replace('\r\n', ' ')) )  # rm CRLF
+        log_file.flush()  # slower but ensures full log on interrupt
+
         job = executor.submit(patentSimilarityApp.get_similar_docs, input_text)
         # save name for later summary view:
         job._name = input_text[:config.view_query_summarize_length]

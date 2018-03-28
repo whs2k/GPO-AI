@@ -106,3 +106,4 @@ static/node_modules/
 # patentSimilarityApp.py
 data/
 model/
+query_log.csv
