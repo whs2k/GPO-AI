@@ -75,6 +75,9 @@ dt {
 dd {
     margin-bottom: 1em;
 }
+dl blockquote {
+    font-size: smaller;
+}
 
 div.outline {
     border: 1px solid #bbb;

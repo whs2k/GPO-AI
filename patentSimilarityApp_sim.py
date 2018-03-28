@@ -13,14 +13,14 @@ def init():
 
 def get_similar_docs(text, title='Document Title 1'):
     print('running get_similar_docs()')
-    sleep(10)
+    sleep(6)
 
-    results = [     # Text, Title, URL
-        ('Document Text 1', title,              'http://bit.ly/DB', 'summary'),
-        ('Document Text 2', 'Document Title 2', 'http://bit.ly/DB', 'summary'),
-        ('Document Text 3', 'Document Title 3', 'http://bit.ly/DB', 'summary'),
-        ('Document Text 4', 'Document Title 4', 'http://bit.ly/DB', 'summary'),
-        ('Document Text 5', 'Document Title 5', 'http://bit.ly/DB', 'summary'),
+    results = [     # Sponsors, Title, URL, summary
+        (['S1', 'S2', 'S3'], title,         'http://bit.ly/DB', 'Summary'),
+        (['S1', 'S2', 'S3'], 'Doc Title 2', 'http://bit.ly/DB', 'Summary'),
+        (['S1', 'S2', 'S3'], 'Doc Title 3', 'http://bit.ly/DB', 'Summary'),
+        (['S1', 'S2', 'S3'], 'Doc Title 4', 'http://bit.ly/DB', 'Summary'),
+        (['S1', 'S2', 'S3'], 'Doc Title 5', 'http://bit.ly/DB', 'Summary'),
     ]
     return results
 
