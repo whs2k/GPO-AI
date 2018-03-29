@@ -15,14 +15,19 @@
                 <dt>
                     <a href="{{ result[2] }}">{{ result[1] }}</a>
                 </dt>
+<!--
                 <dd>
-                  {% for sponsor in result[0][:sponlimit] %}
+                  {# for sponsor in result[0][:sponlimit] %}
                     {% if loop.index == 1 %}
                        <b>{{ sponsor }}</b>,
                     {% else %}
                        {{ sponsor }}{{ "," if not loop.last }}
                     {% endif %}
-                  {% endfor %}
+                  {% endfor #}
+                </dd>
+-->
+                <dd>
+                    {{ result[0][1:-1] }}
                 </dd>
                 <blockquote>{{ result[3] }}</blockquote>
               {% endfor %}
