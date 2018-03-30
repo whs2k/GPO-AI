@@ -1,6 +1,7 @@
 from __future__ import print_function
 import atexit
 import csv
+import os
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor # ProcessPoolExecutor
 
@@ -8,9 +9,11 @@ from flask import Flask
 from flask import redirect, request, url_for
 from flask import render_template as render
 
-import patentSimilarityApp
-#~ import patentSimilarityApp_sim as patentSimilarityApp
 import config
+if os.environ.get('LOC_SIM'):
+    import patentSimilarityApp_sim as patentSimilarityApp
+else:
+    import patentSimilarityApp
 
 
 # Poor man's job queue
