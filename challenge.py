@@ -45,13 +45,15 @@ def start_page():
         input_text = request.form.get('input_text')
 
         # record query
-        query_log.writerow((datetime.now().isoformat(),
+        timestamp = datetime.now().isoformat()
+        query_log.writerow((timestamp,
                             input_text.replace('\r\n', ' ')) )  # rm CRLF
         log_file.flush()  # slower but ensures full log on interrupt
 
         job = executor.submit(patentSimilarityApp.get_similar_docs, input_text)
         # save name for later summary view:
         job._name = input_text[:config.view_query_summarize_length]
+        job._timestamp = timestamp.partition('.')[0].replace('T', ' ')
         jobs.append(job)
         return redirect(url_for('jobs_page'), code=303)  # as GET
     else:
@@ -69,11 +71,13 @@ def result_page(index):
     try:
         job = jobs[index]
         jobname = job._name
+        timestamp = job._timestamp
         results = job.result()
     except IndexError:
-        jobname = ''
+        jobname = timestamp = ''
         results = ('Nothing found.', '', '')
 
     return render('results.html',
                   results=results, index=index, jobname=jobname,
+                  timestamp=timestamp,
                   sponlimit=config.view_results_sponsor_limit)
