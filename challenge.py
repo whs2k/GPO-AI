@@ -3,6 +3,7 @@ import atexit
 import csv
 import os
 from datetime import datetime
+from collections import deque
 from concurrent.futures import ThreadPoolExecutor # ProcessPoolExecutor
 
 from flask import Flask
@@ -18,7 +19,7 @@ else:
 
 # Poor man's job queue
 executor = ThreadPoolExecutor(config.num_threads)
-jobs = []
+jobs = deque(maxlen=config.job_list_capacity)
 
 app = Flask(__name__)
 patentSimilarityApp.init()
