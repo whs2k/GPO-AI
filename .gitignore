@@ -104,6 +104,6 @@ ENV/
 .DS_Store
 static/node_modules/
 # patentSimilarityApp.py
-data/
-model/
+# data/
+# model/
 query_log.csv
