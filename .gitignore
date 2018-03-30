@@ -105,5 +105,7 @@ ENV/
 static/node_modules/
 # patentSimilarityApp.py
 # data/
-# model/
+model/1.2-whs-Sim_Instance
+model/1.2-whs-Sim_Instance.w2v_model.syn0.npy
+model/1.2-whs-Sim_Instance.w2v_model.syn0norm.npy
 query_log.csv
