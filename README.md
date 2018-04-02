@@ -7,7 +7,7 @@ This application takes any text input and returns the most similar congressional
 ## Application Installation
 
     ⏵ pip3 install --user --upgrade flask
-    ⏵ git clone git@github.com:mixmastamyk/loc_challenge.git
+    ⏵ git clone git@github.com:whs2k/loc_challenge_ai.git
 
 ## Running
 
@@ -20,6 +20,7 @@ Or shortcut:
     ⏵ make run
     
 ### Recreate This Work:
+
 1. Scrape GPO data (notebooks/1.0-whs-xmlExtract.ipynb)
 2. Save Data as CSV (data/1.3-billTitleSponsors.csv)
 3. Build and Train WMD Model (notebooks/1.0-whs-xmlExtract.ipynb)
