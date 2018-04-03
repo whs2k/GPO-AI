@@ -48,7 +48,7 @@ def start_page():
         timestamp = datetime.now().isoformat()
         query_log.writerow((timestamp,
                             input_text.replace('\r\n', ' ')) )  # rm CRLF
-        log_file.flush()  # slower but ensures full log on interrupt
+        log_file.flush()  # slower but ensures full log when interrupted
 
         job = executor.submit(patentSimilarityApp.get_similar_docs, input_text)
         # save name for later summary view:
