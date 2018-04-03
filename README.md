@@ -7,7 +7,7 @@ This application takes any text input and returns the most similar congressional
 ## Application Installation
 
     ⏵ pip3 install --user --upgrade flask
-    ⏵ git clone git@github.com:whs2k/loc_challenge_ai.git
+    ⏵ git clone git@github.com:whs2k/GPO-AI.git
 
 ## Running
 
